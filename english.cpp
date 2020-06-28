@@ -35,25 +35,25 @@ int main(){
 	string s;
 	bool wa = 0;
     srand(time(NULL));
-     ifstream inFile(".\\eng\\english.csv", ios::in);
+     ifstream inFile(".\\english.csv", ios::in);
     if (!inFile)
     {
-        cout << "¶}±ÒÀÉ®×¥¢±Ñ¡I" << endl;
+        cout << "é–‹å•Ÿæª”æ¡ˆå¤±æ•—ï¼" << endl;
         exit(1);
     }
     int len = 0;
     string line;
 
     while (getline(inFile, line)){
-        istringstream sin(line); //±N¾ã¦æ¦r¦êlineÅª¤J¨ì¦r¦ê¬ysin¤¤
+        istringstream sin(line); //å°‡æ•´è¡Œå­—ä¸²lineè®€å…¥åˆ°å­—ä¸²æµsinä¸­
 
-        getline(sin, field[len][0], ','); //±N¦r¦ê¬ysin¤¤ªº¦r¤¸Åª¤J¨ìfield¦r¦ê¤¤¡A¥H³r¸¹¬°¤À¹j²Å
-        getline(sin, field[len][1], ','); //±N¦r¦ê¬ysin¤¤ªº¦r¤¸Åª¤J¨ìfield¦r¦ê¤¤¡A¥H³r¸¹¬°¤À¹j²Å
+        getline(sin, field[len][0], ','); //å°‡å­—ä¸²æµsinä¸­çš„å­—å…ƒè®€å…¥åˆ°fieldå­—ä¸²ä¸­ï¼Œä»¥é€—è™Ÿç‚ºåˆ†éš”ç¬¦
+        getline(sin, field[len][1], ','); //å°‡å­—ä¸²æµsinä¸­çš„å­—å…ƒè®€å…¥åˆ°fieldå­—ä¸²ä¸­ï¼Œä»¥é€—è™Ÿç‚ºåˆ†éš”ç¬¦
         field[len][1] = UTF8ToGB(field[len][1].c_str()).c_str();
         len++;
     }
     inFile.close();
-    cout << "¦@Åª¨ú¤F" << len << "­Ó³æ¦r\n³æ¦rÅª¨ú§¹¦¨\n";
+    cout << "å…±è®€å–äº†" << len << "å€‹å–®å­—\nå–®å­—è®€å–å®Œæˆ\n";
 	system("pause");
     system("cls");
     for(int j = 0; j < len; j++){
@@ -83,7 +83,7 @@ int main(){
 			if(s.size() != field[round.front() - 1][0].size()) wa = 1;
 			if(wa){
 				cout << "wrong!\n";
-				cout << "¥¿½Tµª®×¬O:" << field[round.front() - 1][0] << "\n"; 
+				cout << "æ­£ç¢ºç­”æ¡ˆæ˜¯:" << field[round.front() - 1][0] << "\n"; 
 				wra.push_back(round.front()); 
 				wr++;
 			}else{
@@ -97,9 +97,9 @@ int main(){
 	    }
 	    size_wa = wra.size();
 	    if(size_wa)
-		    cout << "¿ù»~ÃD¥Ø:"; 
+		    cout << "éŒ¯èª¤é¡Œç›®:"; 
 		else
-			cout << "¥þ¼Æ¥¿½T!!!®¥³ß¹LÃö!\n";
+			cout << "å…¨æ•¸æ­£ç¢º!!!æ­å–œéŽé—œ!\n";
 	    for(int i = 0; i < size_wa; i++){
 	        r_wa[i] = wra[(rand() % size_wa)];
 	        for(int k = 0; k < i; k++){
@@ -116,6 +116,6 @@ int main(){
 		system("pause");
 		system("cls");
 	}while(!wra.empty());
-	cout << "¥¿½TÃD¼Æ:" << co << "\n";
-	cout << "¿ù»~ÃD¼Æ:" << wr << "\n";
+	cout << "æ­£ç¢ºé¡Œæ•¸:" << co << "\n";
+	cout << "éŒ¯èª¤é¡Œæ•¸:" << wr << "\n";
 }
